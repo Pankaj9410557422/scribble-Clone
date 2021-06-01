@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+    <link rel ="stylesheet" href="style.css"></link>
+    <title>Fun House</title>
+</head>
+<body>
+    <div class="outer-container">
+        <div class="container">
+            <div class="title">
+                <img src="./images/logo.gif" class="logo">
+            </div>
+            <div class="palatte">
+                <div class="section color-palatte">
+                    <div class="colors">
+                        <div class="color red" color="red"></div>
+                        <div class="color green" color="green"></div>
+                        <div class="color blue" color="blue"></div>
+                        <div class="color yellow" color ="yellow"></div>
+                        <div class="color orange" color="orange"></div>
+                        <div class="color black" color="black"></div>
+                        <div class="color pink" color="pink"></div>
+                        <div class="color lightgreen" color="lightgreen"></div>
+                    </div>
+                </div>
+                <div class="section item-palatte">
+                    <div class="eraser"><img src="./images/eraser.png"></div>
+                    <div class="pencil"><img src="./images/pencil.png"></div>
+                    <div class="paint-brush"><img src="./images/brush.jpg"></div>
+                </div>
+            </div>
+            <div class="board-container">
+                <canvas id="board"></canvas>
+            </div>
+        </div>
+        <div class="container">
+            <div class="score"></div>
+            <div class="chat-container">
+                <div class="chat-title-bar">
+                    <img class="chat-logo" src="./images/chatimg.png">
+                    <div class="chat-title">Just Talk...</div>
+                </div>
+                <div class="chat-box">
+                    <div class="chat left">Received msg</div>
+                    <div class="chat right">Sent msg</div>
+                </div>
+                <div class="msgInp">
+                    <form>
+                        <input type="text" class="input-bar" placeholder="Type a message">
+                        <input type="submit">
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="script.js" defer></script>
+</body>
+</html>
