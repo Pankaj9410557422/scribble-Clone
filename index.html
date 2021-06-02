@@ -39,13 +39,16 @@
             </div>
         </div>
         <div class="container">
-            <div class="score"></div>
+            <div class="score">
+                <div class="scoreboard">Scoreboard</div>
+                <div class="word">Word</div>
+            </div>
             <div class="chat-container">
                 <div class="chat-title-bar">
                     <img class="chat-logo" src="./images/chatimg.png">
                     <div class="chat-title">Just Talk...</div>
                 </div>
-                <div class="chat-box"></div>
+                <div class="chat-box" style="background-image: url(./images/backgroundwall.jpg);"></div>
                 <div class="msgInp">
                     <div class="input-bar" contenteditable="true" data-text="Type your message"></div>
                     <div class="sendbtn">
@@ -55,8 +58,8 @@
             </div>
         </div>
     </div>
-    <!-- <script defer src="http://localhost:8000/socket.io/socket.io.js"></script> -->
+    <script defer src="http://localhost:8000/socket.io/socket.io.js"></script>
     <script src="script.js" defer></script>
-    <!-- <script src= client.js defer></script> -->
+    <script src= client.js defer></script>
 </body>
 </html>

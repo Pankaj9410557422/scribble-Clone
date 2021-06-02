@@ -10,13 +10,14 @@ body{
     width:100vw;
     display: flex;
     justify-content: space-evenly;
+    align-items: center;
 }
 .container{
     /* border:1px solid; */
     border-radius: 5px;
     background-color: aliceblue;
     border-radius:5px ;
-    height:100vh;
+    height:95vh;
     width:45vw;
     display:flex;
     flex-direction:column;
@@ -108,9 +109,7 @@ img{
     border:2px solid black;
     cursor:pointer;
 }
-#board{
-    border:1px solid red
-}
+
 
 /* score  */
 .score{
@@ -173,18 +172,18 @@ img{
     float:left;
     clear:both;
     background-color: rgb(117, 219, 219);
-    font-family: 'Pacifico', cursive;
+    font-family: "Helvetica";
 }
 .right{
     float:right;
     clear:both;
     background-color: #97e797;
-    font-family: 'Pacifico', cursive;
+    font-family: "Helvetica";
 }
 .input-bar{
     height: 35px;
     width:89%;
-    /* border:1px solid rgb(54, 54, 35); */
+    border:1px solid rgb(54, 54, 35);
     font-size: x-large;
     overflow:auto;
 }

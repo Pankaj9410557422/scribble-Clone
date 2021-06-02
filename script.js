@@ -1,10 +1,11 @@
-// const socket= io("http://localhost:8000");
+const socket= io("http://localhost:8000");
 
 
 
 let body = document.querySelector("body");
 let board = document.querySelector(".board-container");
 let canvas = document.querySelector("#board");
+let Color = document.querySelector(".colors");
 
 // tool k liye 
 let tool = canvas.getContext("2d");
@@ -16,6 +17,9 @@ let val = 3;
 tool.lineWidth =val;
 tool.strokeStyle="black";
 
+Color.addEventListener("click",function(e){
+    tool.strokeStyle = e.target.getAttribute("color");
+})
 window.addEventListener("resize",function(){
     canvas.height = board.clientHeight;
     canvas.width = board.clientWidth;
@@ -41,7 +45,7 @@ canvas.addEventListener("mousedown",function(e){
         color : tool.strokeStyle,
         width : tool.lineWidth
     };
-    // socket.emit("mousedown", point);
+    socket.emit("mousedown", point);
 });
 canvas.addEventListener("mousemove", function(e){
     if(isMouseDown==true){
@@ -54,12 +58,26 @@ canvas.addEventListener("mousemove", function(e){
             color : tool.strokeStyle,
             width : tool.lineWidth
         };
+        socket.emit("mousemove",point);
     }
-    // socket.emit("mousemove",point);
+    
 })
 
 canvas.addEventListener("mouseup",function(){
     
     isMouseDown=false;
 })
-
+socket.on("onmousedown",function(point){
+    const {x,y,color,width } = point;
+    tool.lineWidth=width;
+    tool.strokeStyle = color;
+    tool.beginPath();
+    tool.moveTo(x,y);
+});
+socket.on("onmousemove",function(point){
+    const {x,y,color,width } = point;
+    tool.lineWidth=width;
+    tool.strokeStyle = color;
+    tool.lineTo(x,y);
+    tool.stroke();
+})

@@ -26,14 +26,14 @@ const playerName = prompt("Enter player name");
 socket.emit('new-user-joined',playerName);
 
 socket.on("user-joined",name=>{
-    append(`${name} joined the room`,'right');
+    append(`"${name}" joined the room`,'right');
 })
 
 socket.on("receive",data=>{
     append(`${data.name}:${data.message}`,'left');
 })
 socket.on("left",name=>{
-    append(`${name} left the chat`,'left');
+    append(`"${name}" left the chat`,'left');
 })
 inpMsg.addEventListener("keydown",function(e){
     if(e.key=="Enter"){

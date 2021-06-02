@@ -15,6 +15,11 @@ io.on("connection",socket=>{
         socket.broadcast.emit("left",users[socket.id]);
         delete users[socket.id];
     })
-    
+    socket.on("mousemove", function(point){
+        socket.broadcast.emit("onmousemove", point);
+    })
+    socket.on("mousedown", function(point){
+        socket.broadcast.emit("onmousedown", point);
+    })
 })
 
