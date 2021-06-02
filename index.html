@@ -29,9 +29,9 @@
                     </div>
                 </div>
                 <div class="section item-palatte">
-                    <div class="eraser"><img src="./images/eraser.png"></div>
-                    <div class="pencil"><img src="./images/pencil.png"></div>
-                    <div class="paint-brush"><img src="./images/brush.jpg"></div>
+                    <div class="eraser sec"><img src="./images/eraser.png"></div>
+                    <div class="pencil sec"><img src="./images/pencil.png"></div>
+                    <div class="paint-brush sec"><img src="./images/brush.jpg"></div>
                 </div>
             </div>
             <div class="board-container">
@@ -45,19 +45,18 @@
                     <img class="chat-logo" src="./images/chatimg.png">
                     <div class="chat-title">Just Talk...</div>
                 </div>
-                <div class="chat-box">
-                    <div class="chat left">Received msg</div>
-                    <div class="chat right">Sent msg</div>
-                </div>
+                <div class="chat-box"></div>
                 <div class="msgInp">
-                    <form>
-                        <input type="text" class="input-bar" placeholder="Type a message">
-                        <input type="submit">
-                    </form>
+                    <div class="input-bar" contenteditable="true" data-text="Type your message"></div>
+                    <div class="sendbtn">
+                        <img  class="sendImg" src="./images/send.png" alt="Send">
+                    </div>
                 </div>
             </div>
         </div>
     </div>
+    <!-- <script defer src="http://localhost:8000/socket.io/socket.io.js"></script> -->
     <script src="script.js" defer></script>
+    <!-- <script src= client.js defer></script> -->
 </body>
 </html>

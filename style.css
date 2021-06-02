@@ -12,7 +12,8 @@ body{
     justify-content: space-evenly;
 }
 .container{
-    border:1px solid;
+    /* border:1px solid; */
+    border-radius: 5px;
     background-color: aliceblue;
     border-radius:5px ;
     height:100vh;
@@ -64,7 +65,7 @@ img{
 .color{
     height:50%;
     width:25%;
-    border:1px solid;
+    /* border:1px solid; */
     border-radius: 2px;
 }
 .red{
@@ -94,12 +95,21 @@ img{
     background-color: lightgreen;
 }
 .board-container{
-    height: 77vh;
+    height: 75vh;
     width:100%;
-    border:1px solid;
+    padding-top: 10px;
+    /* border:1px solid; */
 }
 .color:hover{
+    border:2px solid black;
     cursor:pointer;
+}
+.sec>img:hover{
+    border:2px solid black;
+    cursor:pointer;
+}
+#board{
+    border:1px solid red
 }
 
 /* score  */
@@ -113,12 +123,12 @@ img{
 .chat-container{
     height:50%;
     width:100%;
-    border:1px solid red;
+    /* border:1px solid red; */
 }
 .chat-title-bar{
     height:15%;
     width:100%;
-    border:1px solid blue;
+    /* border:1px solid blue; */
     background: linear-gradient(to bottom, #33ff33 0%, #ec9f0f 100%);
     font-family: 'Pacifico', cursive;
     display:flex;
@@ -137,15 +147,61 @@ img{
     font-size: x-large;
 }
 .chat-box{
-    height:70%;
+    height:75%;
     width:100%;
-    border:1px solid;
+    margin: auto;
+    /* border:1px solid; */
+    overflow-y: auto;
+    overflow-x: auto;
 }
 .msgInp{
-    height:15%;
+    height:10%;
     width:100%;
     border:1px solid green;
+    display:flex;
+    
 }
+.chat{
+    height:fit-content;
+    width:fit-content;
+    padding:3px;
+    margin:4px;
+    border:1px solid;
+    border-radius: 10px;
+}
+.left{
+    float:left;
+    clear:both;
+    background-color: rgb(117, 219, 219);
+    font-family: 'Pacifico', cursive;
+}
+.right{
+    float:right;
+    clear:both;
+    background-color: #97e797;
+    font-family: 'Pacifico', cursive;
+}
+.input-bar{
+    height: 35px;
+    width:89%;
+    /* border:1px solid rgb(54, 54, 35); */
+    font-size: x-large;
+    overflow:auto;
+}
+.sendbtn{
+    height:100%;
+    width:10%;
+    text-align: center;
+    cursor:pointer;
+}
+.sendImg{
+    max-width: 100%;
+    max-height: 100%;
+}
+.chat-box::-webkit-scrollbar {
+    display: none;
+  }
+
 
 
 

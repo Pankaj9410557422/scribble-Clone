@@ -1,6 +1,6 @@
 //Node server which will handle socket.io connecrtion
 
-const io = require("socket.io")(8009);
+const io = require("socket.io")(8000);
 
 const users ={};
 io.on("connection",socket=>{
@@ -15,5 +15,6 @@ io.on("connection",socket=>{
         socket.broadcast.emit("left",users[socket.id]);
         delete users[socket.id];
     })
+    
 })
 
