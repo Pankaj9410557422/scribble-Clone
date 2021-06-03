@@ -39,8 +39,11 @@
             </div>
         </div>
         <div class="container">
-            <div class="score">
-                <div class="scoreboard">Scoreboard</div>
+            <div class="score-container">
+                <div class="scoreboard" style="background-image: url(./images/scoreboard.webp);">
+                    <div class="score-title">#Leaderboard...</div>
+                    <div class="scores" ></div>
+                </div>
                 <div class="word">Word</div>
             </div>
             <div class="chat-container">
@@ -60,6 +63,7 @@
     </div>
     <script defer src="http://localhost:8000/socket.io/socket.io.js"></script>
     <script src="script.js" defer></script>
-    <script src= client.js defer></script>
+    <script src= "client.js" defer></script>
+    <!-- <script src ="scoring.js" defer></script> -->
 </body>
 </html>
