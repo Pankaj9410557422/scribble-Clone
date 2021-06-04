@@ -1,0 +1,123 @@
+*{
+    box-sizing: border-box;
+}
+body{
+    margin:0 auto;
+    background-image: url(./frontimg/J4o.gif);
+    overflow: hidden;
+}
+.headline{
+    height: 60%;
+    font-size: 3rem;
+    padding-left: 20px;
+    animation: colorchange 3s infinite;
+}
+.slo{
+    height: 40%;
+    font-size: 26px;
+    margin: 0;
+}
+
+
+.title{
+    height:15vh;
+    width:100vw;
+    border:1px solid;
+    font-family: 'Dancing Script', cursive;
+    /* background-image: linear-gradient( black, white); */
+    /* box-shadow: 5px 8px 3px #888888; */
+}
+.games-container{
+    height:85vh;
+    width:100vw;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+.game{
+    height:50vh;
+    width:20vw;
+    background-color: beige;
+    z-index: 2;
+    border-radius:5px;
+}
+.pName{
+    height:15%;
+    border:1px solid black;
+    font-size: 30px;
+    text-align: center;
+    padding-top:10px
+}
+.topic{
+    height:10%;
+    text-align: center;
+    padding-top: 3px;
+    font-size:25px
+}
+.flappy>.imagegif{
+    height:64%;
+    background:url(./frontimg/flappy.jpg)
+}
+.snake>.imagegif{
+    height:64%;
+    background:url(./frontimg/snake.jpg)
+}
+.scrible>.imagegif{
+    height:55%;
+    background:url(./frontimg/scribble.gif)
+}
+.scrible>.pName{
+    height:13%
+}
+.playBtn{
+    height:10%;
+    width:95%;
+    border:1px solid;
+    border-radius:5px;
+    background-color:rgb(92,184,92);
+    font-size: 20px;
+    text-align: center;
+    padding-top: 5px;
+    margin:auto;
+    margin-bottom: 3px;
+    /* margin-top: 10px; */
+    box-shadow: 5px 5px 3px;
+}
+
+.pName:empty:before{
+    content:attr(data-placeholder);
+    color:gray;
+}
+.game:hover{
+    border:5px solid red;
+    height:52vh;
+    width:22vw;
+}
+.playBtn:hover{
+    cursor: pointer;
+    /* border: 1px solid yellow */
+}
+
+
+@keyframes colorchange {
+    0%{
+        color: rgb(243, 109, 109);
+        /* transform: translateX(0px); */
+    }
+    25%{
+        color: rgb(202, 231, 73);
+        /* transform: translateX(210px); */
+    }
+    50%{
+        color: rgb(64, 189, 206);
+        /* transform: translateX(410px); */
+    }
+    75%{
+        color: rgb(183, 0, 255);
+        /* transform: translateX(610px); */
+    }
+    100%{
+        color: rgb(255, 0, 98);
+        transform: translateX(810px);
+    }
+}

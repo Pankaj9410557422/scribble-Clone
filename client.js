@@ -89,5 +89,8 @@ socket.on('state',gameState=>{
 })
 socket.on("word",word=>{
     Word.innerText="";
-    Word.innerText=`Your word is : ${word}`
+    Word.innerText=`Your word is : ${word}`;
+    // setTimeout(function(){
+    //     Word.innerText=""
+    // },10000);
 })

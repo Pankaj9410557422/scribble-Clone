@@ -22,14 +22,12 @@ io.on("connection",socket=>{
         socket.broadcast.emit('user-joined',name);
     })
     
+    
+    setTimeout(()=>{
         let word =Words[randomNoGenerator(0,7)];
         let idx = randomNoGenerator(0,arr.length);
-        if(previdx==idx){
-            idx = randomNoGenerator(0,arr.length-1);
-        }else{
-            previdx=idx;
-        }
         socket.to(arr[idx]).emit("word",word);
+    },10000)    
     
     socket.on("send",message=>{
         socket.broadcast.emit("receive",{message:message,name:users[socket.id]})
