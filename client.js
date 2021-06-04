@@ -5,6 +5,8 @@ let msgContainer = document.querySelector(".chat-box");
 let sendBtn = document.querySelector(".sendbtn");
 let inpMsg = document.querySelector(".input-bar");
 let scores = document.querySelector(".scores");
+let Word = document.querySelector(".word");
+let Score = document.querySelectorAll(".score")
 
 
 const append = (message,position)=>{
@@ -14,22 +16,17 @@ const append = (message,position)=>{
     messageEle.classList.add(position);
     msgContainer.appendChild(messageEle);
 }
-function appendScore(name,count){
+function appendScore(name,playerPoints){
     let scoreEle = document.createElement("div")
     scoreEle.classList.add("score");
-    let playerNo = document.createElement("div");
-    playerNo.classList.add("player-no");
-    playerNo.classList.add("game-data");
     let playerName = document.createElement("div");
     playerName.classList.add("player-name");
     playerName.classList.add("game-data");
     let playerScore = document.createElement("div");
     playerScore.classList.add("player-points");
     playerScore.classList.add("game-data");
-    playerNo.innerText=count;
     playerName.innerText=name;
-    playerScore.innerText="0";
-    scoreEle.appendChild(playerNo);
+    playerScore.innerText=playerPoints;
     scoreEle.appendChild(playerName);
     scoreEle.appendChild(playerScore);
     scores.appendChild(scoreEle);
@@ -46,15 +43,16 @@ sendBtn.addEventListener("click",function(){
 
 const playerName = prompt("Enter player name");
 let playerCount = document.querySelectorAll(".score");
-appendScore(playerName,playerCount.length+1);
+// appendScore(playerName,playerCount.length+1);
 // console.log(playerCount);
+
 
 socket.emit('new-user-joined',playerName);
 
-socket.on("user-joined",data=>{
-    append(`"${data.name}" joined the room`,'right');
+socket.on("user-joined",name=>{
+    append(`"${name} joined the room`,'right');
     
-    appendScore(data.name, `${data.connectCounter}`);
+    // appendScore(data.name, `${data.connectCounter}`);
 })
 
 socket.on("receive",data=>{
@@ -74,11 +72,22 @@ inpMsg.addEventListener("keydown",function(e){
     }
 })
 
-socket.on('manage-scorecard',users=>{
-    let count=0;
-    for(const key in users){
-        count++;
-        appendScore(users[key],count);
-        console.log(count);
+// socket.on('manage-scorecard',users=>{
+//     let count=0;
+//     for(const key in users){
+//         count++;
+//         appendScore(users[key],count);
+//         console.log(count);
+//     }
+// })
+socket.on('state',gameState=>{
+    scores.innerHTML="";
+    for(let player in gameState.players){
+        // console.log(gameState.players[player]);
+        appendScore(gameState.players[player].playerName,gameState.players[player].playerScore);
     }
+})
+socket.on("word",word=>{
+    Word.innerText="";
+    Word.innerText=`Your word is : ${word}`
 })

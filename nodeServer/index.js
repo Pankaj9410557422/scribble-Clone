@@ -1,17 +1,36 @@
 //Node server which will handle socket.io connecrtion
 
 const io = require("socket.io")(8000);
-
+let Words =["mango","boat","railway","india","natural","flower","crane","crate"];
 const users ={};
+let arr=[];
 let connectCounter=0;
+var previdx;
+const gameState ={
+    players : {}
+}
 io.on("connection",socket=>{
     socket.on('new-user-joined',name=>{
         connectCounter++;
         users[socket.id]=name;
-        console.log(users);
-        socket.broadcast.emit('manage-scorecard',users);
-        socket.broadcast.emit('user-joined',{name:name,connectCounter:connectCounter});
+        gameState.players[socket.id]={
+            playerName : name,
+            playerScore : "0"
+        }
+        arr = Object.keys(users);
+        io.emit("state",gameState);
+        socket.broadcast.emit('user-joined',name);
     })
+    
+        let word =Words[randomNoGenerator(0,7)];
+        let idx = randomNoGenerator(0,arr.length);
+        if(previdx==idx){
+            idx = randomNoGenerator(0,arr.length-1);
+        }else{
+            previdx=idx;
+        }
+        socket.to(arr[idx]).emit("word",word);
+    
     socket.on("send",message=>{
         socket.broadcast.emit("receive",{message:message,name:users[socket.id]})
     });
@@ -20,7 +39,10 @@ io.on("connection",socket=>{
         if(connectCounter>0){
             connectCounter--;
         }
+        
         delete users[socket.id];
+        delete gameState.players[socket.id];
+        io.emit("state",gameState);
     })
     socket.on("mousemove", function(point){
         socket.broadcast.emit("onmousemove", point);
@@ -29,4 +51,12 @@ io.on("connection",socket=>{
         socket.broadcast.emit("onmousedown", point);
     })
 })
+ function randomNoGenerator(min,max){
+     return Math.floor(Math.random() *(max-min)+ min);
+ }
+//  let arr = Object.keys(users);
+//  setInterval(()=>{
+//     console.log(arr);
+//  },3000)
+
 
