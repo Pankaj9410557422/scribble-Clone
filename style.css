@@ -112,35 +112,32 @@ img{
 
 
 /* score  */
-.score-container{
+.flappy-container{
     height:50%;
     width:100%;
     border:2px solid;
 }
-.scoreboard{
+
+/*.scoreboard{
     height:92%;
     /* border:1px solid red; */
-}
+/* }
 .score-title{
     height:12%;
-    /* border:1px solid; */
     text-align:center;
-    /* padding-top: 3px; */
     font-size:x-large;
     background:linear-gradient(to bottom, rgb(240, 173, 48), rgb(185, 106, 221)) ;   
 }
 
 .score{
     height: 30px;
-    /* border:1px solid blue; */
     margin-bottom: 3px;
     margin-left :14px;
     margin-right:14px;
-    /* background-color: rgb(40, 74, 104); */
     display:flex;
-}
+} */
 
-.player-name{
+/* .player-name{
     width:70%;
 }
 .player-points{
@@ -154,16 +151,16 @@ img{
 .score:hover{
     cursor:pointer;
     border:1px rgb(161, 228, 84) solid;
-}
+} */
 
 
 /* word  */
 
-.word{
+/* .word{
     background-color: aqua;
     text-align: center;
     font-size: x-large;
-}
+}  */
 
 
 

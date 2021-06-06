@@ -5,7 +5,7 @@ let Words =["mango","boat","railway","india","natural","flower","crane","crate"]
 const users ={};
 let arr=[];
 let connectCounter=0;
-var previdx;
+// var previdx;
 const gameState ={
     players : {}
 }
@@ -22,12 +22,14 @@ io.on("connection",socket=>{
         socket.broadcast.emit('user-joined',name);
     })
     
-    
-    setTimeout(()=>{
-        let word =Words[randomNoGenerator(0,7)];
-        let idx = randomNoGenerator(0,arr.length);
-        socket.to(arr[idx]).emit("word",word);
-    },10000)    
+    async function asyncCall(){
+        await sendWord(0);
+        await resolveAfter10Sec();
+        await sendWord(1);
+        await resolveAfter10Sec();
+    }
+    // setInterval(asyncCall,20000)
+       
     
     socket.on("send",message=>{
         socket.broadcast.emit("receive",{message:message,name:users[socket.id]})
@@ -56,5 +58,18 @@ io.on("connection",socket=>{
 //  setInterval(()=>{
 //     console.log(arr);
 //  },3000)
+function sendWord(idx){
+    let word =Words[randomNoGenerator(0,7)];
+    //let idx = randomNoGenerator(0,arr.length);
+    io.to(arr[idx]).emit("word",word);
+}
+function resolveAfter10Sec(){
+    return new Promise(resolve=>{
+        setTimeout(()=>{
+            // io.to(arr[i]).emit("clear");
+            resolve();
+        },10000);
+    })
+}
 
 

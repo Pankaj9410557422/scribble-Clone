@@ -41,7 +41,7 @@ sendBtn.addEventListener("click",function(){
     }
 })
 
-const playerName = prompt("Enter player name");
+//const playerName = prompt("Enter player name");
 let playerCount = document.querySelectorAll(".score");
 // appendScore(playerName,playerCount.length+1);
 // console.log(playerCount);
@@ -72,25 +72,18 @@ inpMsg.addEventListener("keydown",function(e){
     }
 })
 
-// socket.on('manage-scorecard',users=>{
-//     let count=0;
-//     for(const key in users){
-//         count++;
-//         appendScore(users[key],count);
-//         console.log(count);
+
+// socket.on('state',gameState=>{
+//     scores.innerHTML="";
+//     for(let player in gameState.players){
+//         appendScore(gameState.players[player].playerName,gameState.players[player].playerScore);
 //     }
 // })
-socket.on('state',gameState=>{
-    scores.innerHTML="";
-    for(let player in gameState.players){
-        // console.log(gameState.players[player]);
-        appendScore(gameState.players[player].playerName,gameState.players[player].playerScore);
-    }
-})
-socket.on("word",word=>{
-    Word.innerText="";
-    Word.innerText=`Your word is : ${word}`;
-    // setTimeout(function(){
-    //     Word.innerText=""
-    // },10000);
-})
+// socket.on("word",word=>{
+//     Word.innerText="";
+//     Word.innerText=`Your word is : ${word}`;
+// })
+// socket.on("clear",()=>{
+//     Word.innerText="";
+//     Word.innerText='Word'
+// })
